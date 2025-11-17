@@ -5,8 +5,8 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://enakovac04.github.io',
-  base: '/ena_portfolio',      // 👈 THIS is critical
+  site: 'https://enakovac04.github.io/ena_portfolio/',
+  base: '/ena_portfolio/',
   outDir: './docs',
   integrations: [mdx(), sitemap(), tailwind()],
 });
