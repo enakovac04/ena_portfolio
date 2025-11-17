@@ -5,8 +5,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://enakovac04.github.io',        // your GitHub user page
-  base: '/ena_portfolio',                      // your repo name
-  outDir: './docs',                            // where GitHub Pages will read files
+  site: 'https://astrofy-template.netlify.app',
   integrations: [mdx(), sitemap(), tailwind()]
 });
