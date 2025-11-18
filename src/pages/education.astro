@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Education" sideBarActiveItemID="education">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Cornell University — College of Engineering"
+      subtitle="B.S. Computer Science, Minor in Artificial Intelligence • Aug 2022 – May 2026"
+    >
+      <ul class="list-disc ml-6">
+        <li>Dean's List (GPA: 3.5+)</li>
+        <li>Relevant coursework: Data Structures & Algorithms, Machine Learning, Natural Language Processing, Distributed Systems</li>
+      </ul>
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Affiliations & Activities</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="First Generation Investors (FGI) — Vice President of Technology"
+      subtitle="Aug 2024 – Present"
+    >
+      <ul class="list-disc ml-6">
+        <li>Developed and maintained the chapter website, improving member engagement and accessibility.</li>
+        <li>Supported technical onboarding and tooling for members and events.</li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Epsilon Nu Tau (ENT) — Vice President of Technology & Marketing"
+      subtitle="Sep 2023 – Jun 2024"
+    >
+      <ul class="list-disc ml-6">
+        <li>Led marketing strategy and built technical assets to support outreach and recruitment.</li>
+        <li>Implemented website and materials that increased online engagement and event attendance.</li>
+      </ul>
+    </TimeLineElement>
+  </div>
+
+</BaseLayout>
