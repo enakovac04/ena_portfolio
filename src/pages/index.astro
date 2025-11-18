@@ -8,62 +8,23 @@ const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '')
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="py-16 sm:py-24 text-center">
+  <div class="py-8 sm:py-12 text-center">
     <h1 class="text-5xl md:text-6xl font-bold">Ena Kovac</h1>
-    <div class="mt-3 text-sm md:text-base font-mono text-base-content/70">&lt;Hello World /&gt;</div>
+    <div class="mt-3 text-xl md:text-2xl font-mono text-base-content/70">&lt;Hello World /&gt;</div>
     <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed">
       I’m a Computer Science student at Cornell Engineering with a minor in Artificial Intelligence.
       I’m an incoming Software Development Engineer at Amazon Web Services, and previously worked at Samsung SDS and American Express.
       I enjoy backend development, automation, and building software that solves real problems simply and reliably.
     </p>
   </div>
+  <!-- Projects removed from home page per user request -->
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  <!-- Rotating pictures placeholder: reserved space so rotator can be added without shifting layout -->
+  <div id="rotatingPictures" class="mt-12 py-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="h-48 md:h-64 bg-base-200 rounded-lg flex items-center justify-center text-sm opacity-60">
+        Rotating pictures placeholder (will be replaced by rotating picture set)
+      </div>
+    </div>
   </div>
-
-  <HorizontalCard
-    title="WebSocket Management Service (AWS)"
-    img="/ena_portfolio/post_img.webp"
-    desc="Designed and validated a WebSocket management service on AWS ECS handling 6K+ concurrent connections and 8MB payloads; implemented scalable throttling and persistence mechanisms and conducted large-scale load testing."
-    url="/projects#websocket-management"
-    tags={['AWS','WebSockets','ECS']}
-    badge="INFRA"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="MCP Server for Automation (AWS)"
-    img="/ena_portfolio/post_img.webp"
-    desc="Built an MCP server integrating 38 APIs for natural-language automation, reducing manual UI interaction time by ~30% and enabling reproducible automated workflows for product teams."
-    url="/projects#mcp-server"
-    tags={['AWS','Automation','NLP']}
-    badge="AUTOMATION"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Database Development (Java)"
-    img="/ena_portfolio/post_img.webp"
-    desc="Architected and deployed a SQL database managing 100K+ records and optimized query performance for three core models; implemented a dynamic query plan builder to select algorithms based on dataset size, improving retrieval efficiency by ~40%."
-    url="/projects#database-development"
-    tags={['Java','SQL','PostgreSQL']}
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Emotion Classification Model (NLP)"
-    img="/ena_portfolio/post_img.webp"
-    desc="Engineered an NLP pipeline and deep-learning model on a 50K-sample dataset, combining GloVe, BiLSTM, Attention, CNN layers and XGBoost to reach 95% accuracy across 20+ emotion classes."
-    url="/projects#emotion-classification"
-    tags={['Python','Keras','NLP']}
-    badge="ML"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Distributed Messaging System (OCaml)"
-    img="/ena_portfolio/post_img.webp"
-    desc="Built a distributed chat system supporting 1,000+ concurrent clients with asynchronous messaging and optimized routing; achieved <500ms latency and 99% delivery by tuning concurrency and socket-based routing."
-    url="/projects#distributed-messaging"
-    tags={['OCaml','Sockets','Distributed']}
-  />
-
-  <!-- Blog section removed -->
 </BaseLayout>
