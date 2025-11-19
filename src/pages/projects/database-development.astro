@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="Database Development" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <img src={withBase('/logos/cornell-logo.png')} alt="Cornell University logo" class="max-h-24 mb-6" loading="lazy" />
+    <h1 class="text-3xl font-bold">Database Development (Java)</h1>
+    <p>
+      Architected and deployed a SQL database managing 100K+ records, optimized large-scale queries for three core data models, and built a dynamic
+      query planner to choose efficient algorithms across dataset sizes.
+    </p>
+    <section class="mt-6">
+      <h2 class="text-2xl font-semibold">What I focused on</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Profiling and indexing strategies that kept latency under 80ms at peak.</li>
+        <li>Documenting schema conventions so new teammates could contribute quickly.</li>
+        <li>Writing integration tests for every query path to prevent regressions.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

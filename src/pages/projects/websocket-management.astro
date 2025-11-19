@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="WebSocket Management Service" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <img src={withBase('/logos/aws.svg')} alt="AWS logo" class="max-h-24 mb-6" loading="lazy" />
+    <h1 class="text-3xl font-bold">WebSocket Management Service (AWS)</h1>
+    <p>
+      Designed and validated a WebSocket management service on AWS ECS handling 6K+ concurrent connections and 8MB payloads; implemented scalable
+      throttling and persistence mechanisms and conducted large-scale load testing.
+    </p>
+    <section class="mt-6">
+      <h2 class="text-2xl font-semibold">What I focused on</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Autoscaling and failure injection to prove reliability before launch.</li>
+        <li>Clear runbooks so on-call engineers could react within minutes.</li>
+        <li>Partnering with product to define success metrics and dashboards.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

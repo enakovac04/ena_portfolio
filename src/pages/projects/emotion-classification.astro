@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="Emotion Classification Model" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <img src={withBase('/logos/cornell-logo.png')} alt="Cornell University logo" class="max-h-24 mb-6" loading="lazy" />
+    <h1 class="text-3xl font-bold">Emotion Classification Model (NLP)</h1>
+    <p>
+      Engineered an end-to-end NLP pipeline and deep-learning model on a 50K-sample dataset combining GloVe, BiLSTM+Attention, CNN layers, and XGBoost;
+      reached 95% accuracy over 20+ emotion classes.
+    </p>
+    <section class="mt-6">
+      <h2 class="text-2xl font-semibold">What I focused on</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Feature engineering experiments to balance precision and inference speed.</li>
+        <li>Bias analysis to ensure the model performed consistently across demographics.</li>
+        <li>Model interpretability visualizations shared with cross-functional partners.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

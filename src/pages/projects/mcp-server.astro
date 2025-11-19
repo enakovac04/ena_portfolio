@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="MCP Server for Automation" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <img src={withBase('/logos/aws.svg')} alt="AWS logo" class="max-h-24 mb-6" loading="lazy" />
+    <h1 class="text-3xl font-bold">MCP Server for Automation (AWS)</h1>
+    <p>
+      Built an MCP server integrating 38 APIs for natural-language automation, reducing manual UI interaction time by ~30% and enabling reproducible
+      automated workflows for product teams.
+    </p>
+    <section class="mt-6">
+      <h2 class="text-2xl font-semibold">What I focused on</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Intent routing and guardrails so non-technical users could run workflows safely.</li>
+        <li>Weekly demos with stakeholders to surface automation opportunities quickly.</li>
+        <li>Analytics that proved time saved and informed the next API integrations.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

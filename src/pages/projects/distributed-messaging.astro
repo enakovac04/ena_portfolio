@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="Distributed Messaging System" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <img src={withBase('/logos/cornell-logo.png')} alt="Cornell University logo" class="max-h-24 mb-6" loading="lazy" />
+    <h1 class="text-3xl font-bold">Distributed Messaging System (OCaml)</h1>
+    <p>
+      Built a distributed chat system supporting 1,000+ concurrent clients with asynchronous message routing and socket-level concurrency; achieved
+      &lt;500ms latency and 99% delivery reliability.
+    </p>
+    <section class="mt-6">
+      <h2 class="text-2xl font-semibold">What I focused on</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Backpressure and retry strategies so clients never stalled.</li>
+        <li>Chaos testing to validate failure scenarios and recovery speed.</li>
+        <li>Writing clear docs so classmates could deploy the system in minutes.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
