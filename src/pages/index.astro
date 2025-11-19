@@ -7,8 +7,8 @@ const base = import.meta.env.BASE_URL || '/';
 const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
 const companyLogos = [
   { src: withBase('/logos/aws.svg'), alt: 'Amazon Web Services logo' },
-  { src: withBase('/logos/samsung-sds.png'), alt: 'Samsung SDS logo' },
-  { src: withBase('/logos/american-express.png'), alt: 'American Express logo' },
+  { src: withBase('/logos/samsung-sds.svg'), alt: 'Samsung SDS logo' },
+  { src: withBase('/logos/american-express.svg'), alt: 'American Express logo' },
 ];
 ---
 
@@ -31,7 +31,6 @@ const companyLogos = [
           id="companyLogo"
           src={companyLogos[0].src}
           alt={companyLogos[0].alt}
-          data-logos={JSON.stringify(companyLogos)}
           class="max-h-14 sm:max-h-16 w-auto object-contain transition-opacity duration-500"
           loading="lazy"
         />
@@ -40,11 +39,10 @@ const companyLogos = [
   </div>
 
   <script is:inline>
-    window.addEventListener('load', () => {
+    (function () {
+      const logos = ${JSON.stringify(companyLogos)};
       const logoEl = document.getElementById('companyLogo');
-      if (!logoEl) return;
-      const logos = JSON.parse(logoEl.dataset.logos || '[]');
-      if (logos.length === 0) return;
+      if (!logoEl || logos.length === 0) return;
       let index = 0;
       window.setInterval(() => {
         index = (index + 1) % logos.length;
@@ -55,6 +53,6 @@ const companyLogos = [
           logoEl.classList.remove('opacity-0');
         }, 250);
       }, 3000);
-    });
+    })();
   </script>
 </BaseLayout>
