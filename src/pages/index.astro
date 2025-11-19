@@ -31,22 +31,19 @@ const companyLogos = [
           id="companyLogo"
           src={companyLogos[0].src}
           alt={companyLogos[0].alt}
-          class="max-h-16 w-auto object-contain transition-opacity duration-500"
+          data-logos={JSON.stringify(companyLogos)}
+          class="max-h-14 sm:max-h-16 w-auto object-contain transition-opacity duration-500"
           loading="lazy"
         />
       </div>
     </div>
   </div>
 
-  <script type="application/json" id="companyLogoData">
-    {JSON.stringify(companyLogos)}
-  </script>
   <script is:inline>
     window.addEventListener('load', () => {
-      const logoDataEl = document.getElementById('companyLogoData');
       const logoEl = document.getElementById('companyLogo');
-      if (!logoDataEl || !logoEl) return;
-      const logos = JSON.parse(logoDataEl.textContent || '[]');
+      if (!logoEl) return;
+      const logos = JSON.parse(logoEl.dataset.logos || '[]');
       if (logos.length === 0) return;
       let index = 0;
       window.setInterval(() => {
