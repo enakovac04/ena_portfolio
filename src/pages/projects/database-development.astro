@@ -2,24 +2,68 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL || '/';
-const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+const withBase = (path: string) =>
+  base === '/' ? path : base.replace(/\/$/, '') + path;
 ---
 
 <BaseLayout title="Database Development" sideBarActiveItemID="projects">
   <article class="prose max-w-none">
-    <img src={withBase('/logos/cornell-logo.png')} alt="Cornell University logo" class="max-h-24 mb-6" loading="lazy" />
-    <h1 class="text-3xl font-bold">Database Development (Java)</h1>
-    <p>
-      Architected and deployed a SQL database managing 100K+ records, optimized large-scale queries for three core data models, and built a dynamic
-      query planner to choose efficient algorithms across dataset sizes.
+    <div class="flex flex-row items-center gap-4 mb-6">
+      <img
+        src={withBase('/logos/cornell-logo.png')}
+        alt="Cornell University logo"
+        class="h-24 w-auto"   /* identical visual height to AWS */
+        loading="lazy"
+      />
+      <h1 class="text-3xl font-bold leading-tight mt-4">
+        Database Development (Java)
+      </h1>
+    </div>
+
+    <p class="text-base leading-relaxed">
+      Architected and deployed a SQL-style database managing 100K+ records, implementing core relational operators
+      and a dynamic query planner that selects efficient algorithms across different dataset sizes.
     </p>
-    <section class="mt-6">
-      <h2 class="text-2xl font-semibold">What I focused on</h2>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">What I built</h2>
       <ul class="list-disc ml-6 space-y-2">
-        <li>Profiling and indexing strategies that kept latency under 80ms at peak.</li>
-        <li>Documenting schema conventions so new teammates could contribute quickly.</li>
-        <li>Writing integration tests for every query path to prevent regressions.</li>
+        <li>
+          Implemented core relational operators (selection, projection, joins) on top of a custom Java storage layer.
+        </li>
+        <li>
+          Built and compared tuple nested loop join and block nested loop join, benchmarking their performance across
+          varying table sizes and join selectivities.
+        </li>
+        <li>
+          Designed basic indexing and statistics collection to speed up lookups and inform query-planning decisions.
+        </li>
+        <li>
+          Developed a query planner that chooses join algorithms and access paths based on dataset size and available
+          resources, automatically adapting from small (1K) to large (100K+) tables.
+        </li>
+        <li>
+          Added a test harness and integration tests to validate correctness across edge cases and prevent regressions
+          as new operators were added.
+        </li>
       </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Skills I strengthened</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="badge badge-outline">Relational Database Design</span>
+        <span class="badge badge-outline">Query Optimization</span>
+        <span class="badge badge-outline">Join Algorithm Implementation</span>
+        <span class="badge badge-outline">Indexing &amp; Data Structures</span>
+        <span class="badge badge-outline">Performance Profiling</span>
+        <span class="badge badge-outline">Java Backend Development</span>
+      </div>
+      <p class="mt-4">
+        This project gave me hands-on experience with how databases actually execute queries under the hood—how join
+        algorithms behave at different scales, how indexing and statistics influence performance, and how a query
+        planner can turn a declarative SQL request into an efficient execution plan.
+      </p>
     </section>
   </article>
 </BaseLayout>
