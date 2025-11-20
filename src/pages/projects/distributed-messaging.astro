@@ -2,24 +2,67 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL || '/';
-const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+const withBase = (path: string) =>
+  base === '/' ? path : base.replace(/\/$/, '') + path;
 ---
 
 <BaseLayout title="Distributed Messaging System" sideBarActiveItemID="projects">
   <article class="prose max-w-none">
-    <img src={withBase('/logos/cornell-logo.png')} alt="Cornell University logo" class="max-h-24 mb-6" loading="lazy" />
-    <h1 class="text-3xl font-bold">Distributed Messaging System (OCaml)</h1>
-    <p>
-      Built a distributed chat system supporting 1,000+ concurrent clients with asynchronous message routing and socket-level concurrency; achieved
-      &lt;500ms latency and 99% delivery reliability.
+    <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+      <img
+        src={withBase('/logos/cornell-logo.png')}
+        alt="Cornell University logo"
+        class="max-h-20 md:max-h-24"
+        loading="lazy"
+      />
+      <h1 class="text-3xl font-bold leading-tight mt-4">
+        Distributed Messaging System (OCaml)
+      </h1>
+    </div>
+
+    <p class="text-base leading-relaxed">
+      Built a distributed chat system supporting 1,000+ concurrent clients with
+      asynchronous message routing and socket-level concurrency, achieving
+      &lt;500&nbsp;ms end-to-end latency and 99% delivery reliability under load.
     </p>
-    <section class="mt-6">
-      <h2 class="text-2xl font-semibold">What I focused on</h2>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">What I built</h2>
       <ul class="list-disc ml-6 space-y-2">
-        <li>Backpressure and retry strategies so clients never stalled.</li>
-        <li>Chaos testing to validate failure scenarios and recovery speed.</li>
-        <li>Writing clear docs so classmates could deploy the system in minutes.</li>
+        <li>
+          Implemented a multi-client messaging server in OCaml using sockets and
+          concurrency primitives to handle real-time, asynchronous communication.
+        </li>
+        <li>
+          Designed backpressure and retry strategies so slow or temporarily
+          disconnected clients did not stall the system or drop messages.
+        </li>
+        <li>
+          Performed chaos-style testing to validate behavior under failures
+          (crashed clients, dropped connections) and measure recovery speed.
+        </li>
+        <li>
+          Wrote deployment and usage documentation so classmates could spin up
+          the system and join the chat network in minutes.
+        </li>
       </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Skills I strengthened</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="badge badge-outline">Distributed Systems</span>
+        <span class="badge badge-outline">Network & Socket Programming</span>
+        <span class="badge badge-outline">Concurrency & Asynchronous I/O</span>
+        <span class="badge badge-outline">Fault Tolerance & Resilience</span>
+        <span class="badge badge-outline">Functional Programming (OCaml)</span>
+      </div>
+      <p class="mt-4">
+        This project gave me practical experience building a distributed system
+        from the ground up—handling concurrency, designing backpressure and retry
+        mechanisms, reasoning about failures, and tuning for low latency and high
+        reliability.
+      </p>
     </section>
   </article>
 </BaseLayout>
