@@ -16,7 +16,11 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       <ul class="list-disc ml-6">
         <li>B.S. Computer Science, Minor in Artificial Intelligence</li>
         <li>Dean's List (GPA: 3.5+)</li>
-        <li>Relevant coursework: Deep Learning, Machine Learning, Artificial Intelligence, Object Oriented Programming, Data Structures & Algorithms, Functional Programming, Operating Systems, Computer Architecture</li>
+        <li>
+          Relevant coursework: Deep Learning, Machine Learning, Artificial Intelligence,
+          Object Oriented Programming, Data Structures & Algorithms, Functional Programming,
+          Operating Systems, Computer Architecture
+        </li>
       </ul>
     </TimeLineElement>
   </div>
@@ -25,7 +29,8 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <div class="text-3xl w-full font-bold">Leadership & Activities</div>
   </div>
 
-  <div class="time-line-container mb-10">
+  <!-- Added space-y-6 to separate the items more -->
+  <div class="time-line-container mb-10 space-y-6">
     <TimeLineElement
       title="First Generation Investors (FGI) — Vice President of Technology"
       subtitle="Aug 2024 – Present"
@@ -45,6 +50,25 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
         <li>Implemented website and materials that increased online engagement and event attendance.</li>
       </ul>
     </TimeLineElement>
-  </div>
 
+    <TimeLineElement
+      title="Women in Computing at Cornell (WICC) — Member"
+      subtitle="Aug 2022 – Present"
+    >
+      <ul class="list-disc ml-6">
+        <li>Engaged in community, mentorship, and professional development events supporting women in tech.</li>
+        <li>Participated in workshops, networking sessions, and industry panels.</li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Society of Women Engineers (SWE) — Member"
+      subtitle="Aug 2022 – Present"
+    >
+      <ul class="list-disc ml-6">
+        <li>Promoted gender diversity, mentorship, and inclusion through chapter events and STEM outreach.</li>
+        <li>Attended technical workshops and career development programming.</li>
+      </ul>
+    </TimeLineElement>
+  </div>
 </BaseLayout>

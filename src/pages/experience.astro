@@ -8,7 +8,9 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <div id="experience" class="text-3xl w-full font-bold">Experience</div>
   </div>
 
-  <div class="time-line-container mb-10">
+  <!-- TECHNICAL EXPERIENCE -->
+  <div class="time-line-container mb-10 space-y-6">
+
     <TimeLineElement
       title="Software Development Engineer Intern — Amazon Web Services"
       subtitle="June 2025 – August 2025"
@@ -38,51 +40,82 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
         <li>Automated dialogue flow classification pipelines using Selenium scripts and modular pipeline design, improving system reliability by ~60% and lowering maintenance overhead.</li>
       </ul>
     </TimeLineElement>
+
   </div>
-  
+
+  <!-- TEACHING & TUTORING EXPERIENCE -->
   <div class="mb-5">
-  <div class="text-3xl w-full font-bold">Skills</div>
-</div>
-
-<div class="mx-2 mb-10 space-y-8">
-
-  <!-- PROGRAMMING LANGUAGES -->
-  <div>
-    <h4 class="font-semibold text-xl">Programming Languages</h4>
-    <p class="mt-2 ml-1">
-      Java, Python, JavaScript, TypeScript, HTML, CSS, SQL, OCaml, C, C++, Assembly (RISC-V), VBA, AMPL
-    </p>
+    <div class="text-3xl w-full font-bold">Teaching & Tutoring Experience</div>
   </div>
 
-  <!-- FRAMEWORKS & TOOLS -->
-  <div>
-    <h4 class="font-semibold text-xl">Frameworks & Tools</h4>
-    <p class="mt-2 ml-1">
-      AWS (ECS, Lambda, CloudWatch), Docker, GitHub, PostgreSQL, Selenium,
-      Artillery, TensorFlow, Keras, scikit-learn, XGBoost, pandas, NumPy, Unix/Linux
-    </p>
+  <div class="time-line-container mb-10 space-y-6">
+
+    <TimeLineElement
+      title="Self-Employed Mathematics Tutor"
+      subtitle="January 2022 – Present"
+    >
+      <ul class="list-disc ml-6">
+        <li>Provide 1:1 tutoring in mathematics for students ages 8–20, including those with ASD, ADHD, and other neurodevelopmental needs.</li>
+        <li>Specialize in SAT/ACT preparation and adaptive teaching strategies, with average student score improvements of ~25%.</li>
+        <li>Develop personalized learning plans and assessments to track progress and build foundational skills.</li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Mathnasium — Instructor"
+      subtitle="June 2021 – January 2022"
+    >
+      <ul class="list-disc ml-6">
+        <li>Awarded “Instructor of the Month” for exceptional teaching performance and student engagement.</li>
+        <li>Led sessions for K–12 students, created assessment plans, and provided individualized feedback to support accelerated learning.</li>
+        <li>Mentored new instructors and assisted with onboarding and instructional quality improvement.</li>
+      </ul>
+    </TimeLineElement>
+
   </div>
 
-  <!-- TECHNICAL SKILLS -->
-  <div>
-    <h4 class="font-semibold text-xl">Technical Skills</h4>
-    <p class="mt-2 ml-1">
-      Data Structures & Algorithms, Functional & Object-Oriented Programming,
-      Machine Learning, Natural Language Processing, Backend & Web Development,
-      Distributed & Parallel Systems, Cloud Computing, Relational Databases,
-      Information Retrieval, Large-Scale System Design, Networking, Scalability,
-      Containerization & Microservices, Load Testing & Automation, UI Design,
-      Data Storage, Security
-    </p>
+  <!-- SKILLS SECTION -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
   </div>
 
-  <!-- SPOKEN LANGUAGES -->
-  <div>
-    <h4 class="font-semibold text-xl">Natural Languages</h4>
-    <p class="mt-2 ml-1">
-      English (Native), Bosnian (Fluent), Croatian (Fluent), Serbian (Fluent),
-      Spanish (Proficient), German (Beginner)
-    </p>
+  <div class="mx-2 mb-10 space-y-8">
+
+    <div>
+      <h4 class="font-semibold text-xl">Programming Languages</h4>
+      <p class="mt-2 ml-1">
+        Java, Python, JavaScript, TypeScript, HTML, CSS, SQL, OCaml, C, C++, Assembly (RISC-V), VBA, AMPL
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-xl">Frameworks & Tools</h4>
+      <p class="mt-2 ml-1">
+        AWS (ECS, Lambda, CloudWatch), Docker, GitHub, PostgreSQL, Selenium,
+        Artillery, TensorFlow, Keras, scikit-learn, XGBoost, pandas, NumPy, Unix/Linux
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-xl">Technical Skills</h4>
+      <p class="mt-2 ml-1">
+        Data Structures & Algorithms, Functional & Object-Oriented Programming,
+        Machine Learning, Natural Language Processing, Backend & Web Development,
+        Distributed & Parallel Systems, Cloud Computing, Relational Databases,
+        Information Retrieval, Large-Scale System Design, Networking, Scalability,
+        Containerization & Microservices, Load Testing & Automation, UI Design,
+        Data Storage, Security
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-xl">Natural Languages</h4>
+      <p class="mt-2 ml-1">
+        English (Native), Bosnian (Fluent), Croatian (Fluent), Serbian (Fluent),
+        Spanish (Proficient), German (Beginner)
+      </p>
+    </div>
+
   </div>
 
-</div>
+</BaseLayout>
