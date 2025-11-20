@@ -40,13 +40,16 @@ const companyLogos = [
   </div>
 
   <script is:inline>
-    window.addEventListener('load', () => {
+    const startLogoRotation = () => {
       const logoEl = document.getElementById('companyLogo');
       if (!logoEl) return;
       const logos = JSON.parse(logoEl.dataset.logos || '[]');
       if (logos.length === 0) return;
+      if (window.__logoRotationInterval) {
+        clearInterval(window.__logoRotationInterval);
+      }
       let index = 0;
-      window.setInterval(() => {
+      window.__logoRotationInterval = window.setInterval(() => {
         index = (index + 1) % logos.length;
         logoEl.classList.add('opacity-0');
         window.setTimeout(() => {
@@ -55,6 +58,13 @@ const companyLogos = [
           logoEl.classList.remove('opacity-0');
         }, 250);
       }, 3000);
-    });
+    };
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', startLogoRotation, { once: true });
+    } else {
+      startLogoRotation();
+    }
+    document.addEventListener('astro:page-load', startLogoRotation);
   </script>
 </BaseLayout>
