@@ -2,24 +2,63 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL || '/';
-const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+const withBase = (path: string) =>
+  base === '/' ? path : base.replace(/\/$/, '') + path;
 ---
 
 <BaseLayout title="MCP Server for Automation" sideBarActiveItemID="projects">
   <article class="prose max-w-none">
-    <img src={withBase('/logos/aws.svg')} alt="AWS logo" class="max-h-24 mb-6" loading="lazy" />
-    <h1 class="text-3xl font-bold">MCP Server for Automation (AWS)</h1>
-    <p>
-      Built an MCP server integrating 38 APIs for natural-language automation, reducing manual UI interaction time by ~30% and enabling reproducible
-      automated workflows for product teams.
+    <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+      <img src={withBase('/logos/aws.svg')} alt="AWS logo" class="max-h-12 md:max-h-16" loading="lazy" />
+      <h1 class="text-3xl font-bold leading-tight">MCP Server for Automation (AWS)</h1>
+    </div>
+
+    <p class="text-base leading-relaxed">
+      Built an MCP server integrating 38 internal APIs to automate UI workflows end-to-end. The system reduced manual 
+      interaction time by ~30% by enabling typed or voice-based natural-language requests and executing the required
+      workflow safely, consistently, and asynchronously.
     </p>
-    <section class="mt-6">
-      <h2 class="text-2xl font-semibold">What I focused on</h2>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">What I built</h2>
       <ul class="list-disc ml-6 space-y-2">
-        <li>Intent routing and guardrails so non-technical users could run workflows safely.</li>
-        <li>Weekly demos with stakeholders to surface automation opportunities quickly.</li>
-        <li>Analytics that proved time saved and informed the next API integrations.</li>
+        <li>
+          Implemented a natural-language interface supporting both typed commands and real-time voice transcription, 
+          enabling anyone to trigger complex workflows through simple requests.
+        </li>
+        <li>
+          Integrated 38 internal APIs powering actions like “accept call,” “update record,” and other UI-heavy workflows,
+          replacing slow manual clicking with reliable automation.
+        </li>
+        <li>
+          Engineered asynchronous MCP tools allowing multiple API calls to execute in parallel, significantly cutting 
+          workflow time for independent operations.
+        </li>
+        <li>
+          Built a dependency-mapping system to determine which API calls could run concurrently vs. sequentially, 
+          optimizing latency while guaranteeing correctness.
+        </li>
+        <li>
+          Delivered weekly demos to product teams and senior engineers, validating use cases, gathering feedback, and 
+          highlighting measurable time savings.
+        </li>
       </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Skills I strengthened</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="badge badge-outline">Systems Design</span>
+        <span class="badge badge-outline">Asynchronous Programming</span>
+        <span class="badge badge-outline">Automation Engineering</span>
+        <span class="badge badge-outline">Natural Language Interfaces</span>
+        <span class="badge badge-outline">API Integration</span>
+      </div>
+      <p class="mt-4">
+        This project taught me how to design automation pipelines that scale across multiple teams, how to build robust 
+        asynchronous tools, and how to communicate clearly in demos and stakeholder syncs while continuously iterating 
+        on feedback. I also learned how to model workflow dependencies and optimize execution for performance and safety.
+      </p>
     </section>
   </article>
 </BaseLayout>
