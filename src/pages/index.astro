@@ -18,7 +18,7 @@ const companyLogos = [
     <div
       id="helloType"
       class="mt-3 text-xl md:text-2xl font-mono text-base-content/70 inline-block"
-      style="min-height: 1.5em; min-width: 12ch;"
+      style="min-height: 1.6em; min-width: 12ch; height: 1.6em; line-height: 1.6; white-space: pre;"
     >
       Hello World!
     </div>
@@ -53,7 +53,7 @@ const companyLogos = [
       if (window.__helloTypeTimer) {
         window.clearTimeout(window.__helloTypeTimer);
       }
-      target.textContent = ' ';
+      target.textContent = '\u00a0';
       let i = 0;
       let deleting = false;
 
@@ -67,7 +67,7 @@ const companyLogos = [
             return;
           }
         } else {
-          target.textContent = text.slice(0, i - 1) || ' ';
+          target.textContent = text.slice(0, i - 1) || '\u00a0';
           i -= 1;
           if (i === 0) {
             deleting = false;
