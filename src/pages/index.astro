@@ -15,7 +15,7 @@ const companyLogos = [
 <BaseLayout sideBarActiveItemID="home">
   <div class="py-8 sm:py-12 text-center">
     <h1 class="text-5xl md:text-6xl font-bold">Ena Kovac</h1>
-    <div class="mt-3 text-xl md:text-2xl font-mono text-base-content/70">&lt;Hello World /&gt;</div>
+    <div id="helloType" class="mt-3 text-xl md:text-2xl font-mono text-base-content/70">Hello World!</div>
     <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed">
       I’m a Computer Science student at Cornell Engineering with a minor in Artificial Intelligence.
       I’m an incoming Software Development Engineer at Amazon Web Services, and previously worked at Samsung SDS and American Express.
@@ -40,6 +40,25 @@ const companyLogos = [
   </div>
 
   <script is:inline>
+    const typeHello = () => {
+      const target = document.getElementById('helloType');
+      if (!target) return;
+      const text = 'Hello World!';
+      if (window.__helloTypeTimer) {
+        window.clearTimeout(window.__helloTypeTimer);
+      }
+      target.textContent = '';
+      let i = 0;
+      const tick = () => {
+        target.textContent += text[i];
+        i += 1;
+        if (i < text.length) {
+          window.__helloTypeTimer = window.setTimeout(tick, 90);
+        }
+      };
+      tick();
+    };
+
     const startLogoRotation = () => {
       const logoEl = document.getElementById('companyLogo');
       if (!logoEl) return;
@@ -60,11 +79,16 @@ const companyLogos = [
       }, 3000);
     };
 
-    if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', startLogoRotation, { once: true });
-    } else {
+    const onLoad = () => {
+      typeHello();
       startLogoRotation();
+    };
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', onLoad, { once: true });
+    } else {
+      onLoad();
     }
-    document.addEventListener('astro:page-load', startLogoRotation);
+    document.addEventListener('astro:page-load', onLoad);
   </script>
 </BaseLayout>
