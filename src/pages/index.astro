@@ -49,14 +49,29 @@ const companyLogos = [
       }
       target.textContent = '';
       let i = 0;
-      const tick = () => {
-        target.textContent += text[i];
-        i += 1;
-        if (i < text.length) {
-          window.__helloTypeTimer = window.setTimeout(tick, 90);
+      let deleting = false;
+
+      const step = () => {
+        if (!deleting) {
+          target.textContent = text.slice(0, i + 1);
+          i += 1;
+          if (i === text.length) {
+            deleting = true;
+            window.__helloTypeTimer = window.setTimeout(step, 800);
+            return;
+          }
+        } else {
+          target.textContent = text.slice(0, i - 1);
+          i -= 1;
+          if (i === 0) {
+            deleting = false;
+            window.__helloTypeTimer = window.setTimeout(step, 600);
+            return;
+          }
         }
+        window.__helloTypeTimer = window.setTimeout(step, 90);
       };
-      tick();
+      step();
     };
 
     const startLogoRotation = () => {
