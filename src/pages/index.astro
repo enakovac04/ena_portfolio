@@ -99,7 +99,7 @@ const companyLogos = [
           i += 1;
           if (i === text.length) {
             deleting = true;
-            window.__helloTypeTimer = window.setTimeout(step, 800);
+            window.__helloTypeTimer = window.setTimeout(step, 3000);
             return;
           }
         } else {
@@ -111,7 +111,7 @@ const companyLogos = [
             return;
           }
         }
-        window.__helloTypeTimer = window.setTimeout(step, 90);
+        window.__helloTypeTimer = window.setTimeout(step, deleting ? 110 : 130);
       };
       step();
     };
