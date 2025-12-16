@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL || '/';
+const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+---
+
+<BaseLayout title="Benchmark Lineage Visualizer" sideBarActiveItemID="projects">
+  <article class="prose max-w-none">
+    <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+      <img src={withBase('/logos/cornell-logo.png')} alt="Cornell logo" class="max-h-14 md:max-h-16" loading="lazy" />
+      <h1 class="text-3xl font-bold leading-tight">Benchmark Lineage Visualizer</h1>
+    </div>
+
+    <p class="text-base leading-relaxed">
+      I designed a lightweight visualization to trace benchmark lineage across experiments for my Cornell course project.
+      The goal was to make it trivial for teammates to see how datasets, hyperparameters, and model variants evolved across runs,
+      and to surface reproducibility gaps early.
+    </p>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">What I shipped</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Mapped experiment metadata into a lineage graph to show parent/child benchmarks and configuration drift.</li>
+        <li>Added quick filters for dataset, model family, and run date to spot anomalies and regression points.</li>
+        <li>Packaged the findings into a slide deck to guide our retrospective and future test coverage.</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Slides</h2>
+      <div class="mt-4 bg-base-200/60 border rounded-lg shadow overflow-hidden">
+        <object
+          data={withBase('/New%20CS%204775%20Presentation%20Draft.odp')}
+          type="application/vnd.oasis.opendocument.presentation"
+          class="w-full h-[70vh]">
+          <div class="p-4 text-center text-sm">
+            <p class="mb-2">Download the slide deck to view the benchmark lineage walkthrough.</p>
+            <a class="link" href={withBase('/New%20CS%204775%20Presentation%20Draft.odp')}>Download slides (ODP)</a>
+          </div>
+        </object>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

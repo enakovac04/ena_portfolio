@@ -24,6 +24,17 @@ const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '')
   <div class="divider my-0"></div>
 
   <HorizontalCard
+    title="Benchmark Lineage Visualizer"
+    img={withBase('/logos/cornell-logo.png')}
+    desc="Built a lineage view to track dataset, hyperparameter, and model changes across benchmarks, with filters for rapid regression spotting and a slide deck to summarize findings."
+    url={withBase('/projects/benchmark-lineage')}
+    target="_self"
+    tags={['Reproducibility','Visualization','Analysis']}
+    badge="DATA"
+  />
+  <div class="divider my-0"></div>
+
+  <HorizontalCard
     title="MCP Server for Automation (AWS)"
     img={withBase('/logos/aws.svg')}
     desc="Built an MCP server integrating 38 APIs for natural-language automation, reducing manual UI interaction time by ~30% and enabling reproducible automated workflows for product teams."
