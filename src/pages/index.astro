@@ -15,7 +15,13 @@ const companyLogos = [
 <BaseLayout sideBarActiveItemID="home">
   <div class="py-8 sm:py-12 text-center">
     <h1 class="text-5xl md:text-6xl font-bold">Ena Kovac</h1>
-    <div id="helloType" class="mt-3 text-xl md:text-2xl font-mono text-base-content/70">Hello World!</div>
+    <div
+      id="helloType"
+      class="mt-3 text-xl md:text-2xl font-mono text-base-content/70 inline-block"
+      style="min-height: 1.5em; min-width: 12ch;"
+    >
+      Hello World!
+    </div>
     <p class="mt-8 mx-auto max-w-2xl text-lg leading-relaxed">
       I’m a Computer Science student at Cornell Engineering with a minor in Artificial Intelligence.
       I’m an incoming Software Development Engineer at Amazon Web Services, and previously worked at Samsung SDS and American Express.
@@ -47,7 +53,7 @@ const companyLogos = [
       if (window.__helloTypeTimer) {
         window.clearTimeout(window.__helloTypeTimer);
       }
-      target.textContent = '';
+      target.textContent = ' ';
       let i = 0;
       let deleting = false;
 
@@ -61,7 +67,7 @@ const companyLogos = [
             return;
           }
         } else {
-          target.textContent = text.slice(0, i - 1);
+          target.textContent = text.slice(0, i - 1) || ' ';
           i -= 1;
           if (i === 0) {
             deleting = false;
