@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL || '/';
 const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '') + path;
+const deckPath = withBase('/New%20CS%204775%20Presentation%20Draft%20(3).pdf');
 ---
 
 <BaseLayout title="Benchmark Lineage Visualizer" sideBarActiveItemID="projects">
@@ -14,8 +15,9 @@ const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '')
 
     <p class="text-base leading-relaxed">
       I designed a lightweight visualization to trace benchmark lineage across experiments for my Cornell course project.
-      The goal was to make it trivial for teammates to see how datasets, hyperparameters, and model variants evolved across runs,
-      and to surface reproducibility gaps early.
+      I implemented each benchmark algorithm in the deck and ran them on both a synthetic dataset (to isolate edge cases) and
+      a real dataset (to validate practical gains), so we could compare how configuration drift impacted results. The PDF deck
+      below captures the runs, lineage views, and takeaways for our team retro.
     </p>
 
     <section class="mt-8">
@@ -23,20 +25,38 @@ const withBase = (path: string) => base === '/' ? path : base.replace(/\/$/, '')
       <ul class="list-disc ml-6 space-y-2">
         <li>Mapped experiment metadata into a lineage graph to show parent/child benchmarks and configuration drift.</li>
         <li>Added quick filters for dataset, model family, and run date to spot anomalies and regression points.</li>
-        <li>Packaged the findings into a slide deck to guide our retrospective and future test coverage.</li>
+        <li>Implemented and benchmarked the listed algorithms on synthetic and real datasets, then summarized findings in a slide deck for team retro.</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold">Execution & report plan (team)</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Run SCITE, SiFit, PhISCS-BnB, and Neighbor-Joining on the real single-cell tumor dataset with consistent preprocessing and logged parameters.</li>
+        <li>Compare real-data lineage trees to synthetic patterns (balanced/comb/mixed) for depth, branching, noise sensitivity, and clade stability.</li>
+        <li>Collect numeric comparators: pairwise tree distances where applicable, depth/internal node counts, runtime/cost for each method.</li>
+        <li>Divide writing: Methods (Ena), computational cost (Claire), biological interpretation (Alex), real-data execution/analysis (Jake & Sophia), integration/review (Alyssa).</li>
       </ul>
     </section>
 
     <section class="mt-8">
       <h2 class="text-2xl font-semibold">Slides</h2>
+      <div class="mt-3 flex gap-3 flex-wrap">
+        <a class="btn btn-ghost btn-sm" href={deckPath} target="_blank" rel="noopener noreferrer">
+          Open slides in new tab
+        </a>
+        <a class="btn btn-ghost btn-sm" href={deckPath} download>
+          Download (PDF)
+        </a>
+      </div>
       <div class="mt-4 bg-base-200/60 border rounded-lg shadow overflow-hidden">
         <object
-          data={withBase('/New%20CS%204775%20Presentation%20Draft.odp')}
-          type="application/vnd.oasis.opendocument.presentation"
-          class="w-full h-[70vh]">
-          <div class="p-4 text-center text-sm">
-            <p class="mb-2">Download the slide deck to view the benchmark lineage walkthrough.</p>
-            <a class="link" href={withBase('/New%20CS%204775%20Presentation%20Draft.odp')}>Download slides (ODP)</a>
+          data={deckPath}
+          type="application/pdf"
+          class="w-full h-[80vh]">
+          <div class="p-3 text-center text-sm">
+            <p class="mb-2">If the embedded PDF doesn’t load, use the buttons above to open or download.</p>
+            <a class="link" href={deckPath}>Download slides (PDF)</a>
           </div>
         </object>
       </div>
