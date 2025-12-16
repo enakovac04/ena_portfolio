@@ -28,8 +28,6 @@ const companyLogos = [
       I enjoy machine learning, automation, and building software that solves real problems simply and reliably.
     </p>
   </div>
-  <!-- Projects removed from home page per user request -->
-
   <div class="mt-6 py-4">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
       <div class="w-full flex justify-center">
@@ -44,6 +42,37 @@ const companyLogos = [
       </div>
     </div>
   </div>
+
+  <!-- Projects removed from home page per user request -->
+
+  <section id="highlights" class="mt-10 max-w-5xl mx-auto px-4">
+    <div class="text-left">
+      <h2 class="text-2xl font-semibold mb-4">Highlights</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href={withBase('/projects/websocket-management#architecture')} class="card bg-base-200 shadow hover:shadow-lg transition">
+          <div class="card-body">
+            <h3 class="card-title text-lg">WebSocket Architecture Diagram</h3>
+            <p class="text-sm text-base-content/80">View the API Gateway + Lambda + DynamoDB flow from the AWS project.</p>
+            <span class="link link-hover text-sm mt-1">Jump to diagram</span>
+          </div>
+        </a>
+        <a href={withBase('/projects/benchmark-lineage#slides')} class="card bg-base-200 shadow hover:shadow-lg transition">
+          <div class="card-body">
+            <h3 class="card-title text-lg">Benchmark Lineage Slides (CS4775)</h3>
+            <p class="text-sm text-base-content/80">Open the embedded PDF walkthrough of the lineage experiments.</p>
+            <span class="link link-hover text-sm mt-1">Open slides</span>
+          </div>
+        </a>
+        <a href={withBase('/cv')} class="card bg-base-200 shadow hover:shadow-lg transition">
+          <div class="card-body">
+            <h3 class="card-title text-lg">Resume (PDF)</h3>
+            <p class="text-sm text-base-content/80">Preview and download the latest resume directly.</p>
+            <span class="link link-hover text-sm mt-1">View resume</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <script is:inline>
     const typeHello = () => {
